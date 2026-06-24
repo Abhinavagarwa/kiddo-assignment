@@ -114,23 +114,14 @@ const styles =
   StyleSheet.create({
     card: {
       width: 145,
-
       marginHorizontal: 8,
-
       marginVertical: 10,
-
       padding: 12,
-
       borderRadius: 16,
-
       backgroundColor: "#fff",
-
       shadowColor: "#000",
-
       shadowOpacity: 0.08,
-
       shadowRadius: 8,
-
       shadowOffset: {
         width: 0,
         height: 4,
@@ -141,83 +132,60 @@ const styles =
 
     image: {
       width: "100%",
-
       height: 120,
-
       borderRadius: 12,
     },
 
     title: {
       marginTop: 10,
-
       fontSize: 15,
-
       fontWeight: "600",
     },
 
     price: {
       marginTop: 6,
-
       fontSize: 18,
-
       fontWeight: "700",
     },
 
     actions: {
       flexDirection: "row",
-
       justifyContent: "center",
-
       alignItems: "center",
-
       marginTop: 14,
     },
 
     removeBtn: {
       width: 36,
-
       height: 36,
-
       borderRadius: 18,
-
       backgroundColor: "#E5E5E5",
-
       justifyContent: "center",
-
       alignItems: "center",
     },
 
     addBtn: {
       width: 36,
-
       height: 36,
-
       borderRadius: 18,
-
       justifyContent: "center",
-
       alignItems: "center",
     },
 
     actionText: {
       fontSize: 22,
-
       fontWeight: "700",
     },
 
     addText: {
       color: "#fff",
-
       fontSize: 22,
-
       fontWeight: "700",
     },
 
     qty: {
       marginHorizontal: 16,
-
       fontSize: 18,
-
       fontWeight: "700",
     },
   });
