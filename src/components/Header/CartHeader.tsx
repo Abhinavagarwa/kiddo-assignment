@@ -10,21 +10,28 @@ import {
   useSafeAreaInsets,
 } from "react-native-safe-area-context";
 
-import { useCartStore }
-from "../../store/cartStore";
-
 import { useTheme }
 from "../../providers/ThemeProvider";
 
+import { useCartStore }
+from "../../store/cartStore";
+
 export function CartHeader() {
+
   const theme = useTheme();
 
   const insets =
     useSafeAreaInsets();
 
-  const count = useCartStore(
-    (state) => state.count
-  );
+  const count =
+    useCartStore(
+      (state) => state.count
+    );
+
+  const total =
+    useCartStore(
+      (state) => state.total
+    );
 
   return (
     <View
@@ -36,22 +43,10 @@ export function CartHeader() {
 
           backgroundColor:
             theme.primary,
-
-          shadowColor: "#000",
-
-          shadowOpacity: 0.1,
-
-          shadowRadius: 8,
-
-          shadowOffset: {
-            width: 0,
-            height: 4,
-          },
-
-          elevation: 4,
         },
       ]}
     >
+
       <View>
         <Text style={styles.brand}>
           Kiddo 🧸
@@ -66,62 +61,78 @@ export function CartHeader() {
         <Text style={styles.cartText}>
           🛒 {count}
         </Text>
+
+        <Text style={styles.total}>
+          ₹{total}
+        </Text>
       </View>
+
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    paddingHorizontal: 20,
+const styles =
+  StyleSheet.create({
+    container: {
+      paddingHorizontal: 20,
 
-    paddingBottom: 16,
+      paddingBottom: 18,
 
-    flexDirection: "row",
+      flexDirection: "row",
 
-    justifyContent:
-      "space-between",
+      justifyContent:
+        "space-between",
 
-    alignItems: "center",
+      alignItems: "center",
 
-    borderBottomLeftRadius: 20,
+      borderBottomLeftRadius: 24,
 
-    borderBottomRightRadius: 20,
-  },
+      borderBottomRightRadius: 24,
 
-  brand: {
-    color: "#fff",
+      elevation: 6,
+    },
 
-    fontSize: 24,
+    brand: {
+      color: "#fff",
 
-    fontWeight: "700",
-  },
+      fontSize: 24,
 
-  subtitle: {
-    color:
-      "rgba(255,255,255,0.9)",
+      fontWeight: "700",
+    },
 
-    marginTop: 4,
+    subtitle: {
+      color:
+        "rgba(255,255,255,0.9)",
 
-    fontSize: 13,
-  },
+      marginTop: 4,
+    },
 
-  cartBadge: {
-    backgroundColor:
-      "rgba(255,255,255,0.2)",
+    cartBadge: {
+      backgroundColor:
+        "rgba(255,255,255,0.2)",
 
-    paddingHorizontal: 14,
+      paddingHorizontal: 14,
 
-    paddingVertical: 8,
+      paddingVertical: 10,
 
-    borderRadius: 20,
-  },
+      borderRadius: 20,
 
-  cartText: {
-    color: "#fff",
+      alignItems: "center",
+    },
 
-    fontWeight: "700",
+    cartText: {
+      color: "#fff",
 
-    fontSize: 16,
-  },
-});
+      fontWeight: "700",
+
+      fontSize: 16,
+    },
+
+    total: {
+      color: "#fff",
+
+      fontWeight: "700",
+
+      marginTop: 4,
+    },
+  });

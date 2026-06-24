@@ -1,46 +1,66 @@
 import { create } from "zustand";
 
 interface CartState {
-  count: number;
-
   items: Record<string, number>;
 
-  addItem: (id: string) => void;
+  count: number;
+
+  total: number;
+
+  addItem: (
+    id: string,
+    price: number
+  ) => void;
+
+  removeItem: (
+    id: string,
+    price: number
+  ) => void;
 }
 
 export const useCartStore =
   create<CartState>((set) => ({
-    count: 0,
-
     items: {},
 
-    addItem: (id) =>
-      set((state) => ({
-        count: state.count + 1,
+    count: 0,
 
+    total: 0,
+
+    addItem: (id, price) =>
+      set((state) => ({
         items: {
           ...state.items,
           [id]:
             (state.items[id] ?? 0) + 1,
         },
+
+        count:
+          state.count + 1,
+
+        total:
+          state.total + price,
       })),
-      removeItem: (id: string) =>
-  set((state) => {
-    const current =
-      state.items[id] ?? 0;
 
-    if (current <= 0)
-      return state;
+    removeItem: (id, price) =>
+      set((state) => {
+        const current =
+          state.items[id] ?? 0;
 
-    return {
-      items: {
-        ...state.items,
-        [id]: current - 1,
-      },
+        if (current === 0) {
+          return state;
+        }
 
-      count:
-        state.count - 1,
-    };
-  }),
+        return {
+          items: {
+            ...state.items,
+            [id]: current - 1,
+          },
+
+          count:
+            state.count - 1,
+
+          total:
+            state.total - price,
+        };
+      }),
   }));
-  

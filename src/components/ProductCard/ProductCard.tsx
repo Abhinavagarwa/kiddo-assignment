@@ -7,8 +7,7 @@ import {
   StyleSheet,
 } from "react-native";
 
-import { Image }
-from "expo-image";
+import { Image } from "expo-image";
 
 import { useTheme }
 from "../../providers/ThemeProvider";
@@ -28,6 +27,7 @@ interface Props {
 function ProductCard({
   product,
 }: Props) {
+
   const theme = useTheme();
 
   const qty = useCartStore(
@@ -35,22 +35,21 @@ function ProductCard({
       state.items[product.id] ?? 0
   );
 
-  const addItem =
-    useCartStore(
-      (state) => state.addItem
-    );
+  const addItem = useCartStore(
+    (state) => state.addItem
+  );
 
-  const removeItem =
-    useCartStore(
-      (state) =>
-        state.removeItem
-    );
+  const removeItem = useCartStore(
+    (state) => state.removeItem
+  );
 
   return (
     <View style={styles.card}>
+
       <Image
         source={product.image}
         style={styles.image}
+        contentFit="cover"
       />
 
       <Text style={styles.title}>
@@ -61,26 +60,18 @@ function ProductCard({
         ₹{product.price}
       </Text>
 
-      <View style={styles.actionRow}>
+      <View style={styles.actions}>
+
         <Pressable
-          style={[
-            styles.smallButton,
-            {
-              backgroundColor:
-                "#ff5252",
-            },
-          ]}
+          style={styles.removeBtn}
           onPress={() =>
             removeItem(
-              product.id
+              product.id,
+              product.price
             )
           }
         >
-          <Text
-            style={
-              styles.buttonText
-            }
-          >
+          <Text style={styles.actionText}>
             −
           </Text>
         </Pressable>
@@ -91,7 +82,7 @@ function ProductCard({
 
         <Pressable
           style={[
-            styles.smallButton,
+            styles.addBtn,
             {
               backgroundColor:
                 theme.primary,
@@ -99,112 +90,134 @@ function ProductCard({
           ]}
           onPress={() =>
             addItem(
-              product.id
+              product.id,
+              product.price
             )
           }
         >
           <Text
-            style={
-              styles.buttonText
-            }
+            style={styles.addText}
           >
             +
           </Text>
         </Pressable>
+
       </View>
+
     </View>
   );
 }
 
-export default memo(
-  ProductCard
-);
+export default memo(ProductCard);
 
-const styles = StyleSheet.create({
-  card: {
-    width: 160,
+const styles =
+  StyleSheet.create({
+    card: {
+      width: 145,
 
-    backgroundColor: "#fff",
+      marginHorizontal: 8,
 
-    borderRadius: 16,
+      marginVertical: 10,
 
-    padding: 12,
+      padding: 12,
 
-    marginBottom: 16,
+      borderRadius: 16,
 
-    shadowColor: "#000",
+      backgroundColor: "#fff",
 
-    shadowOpacity: 0.08,
+      shadowColor: "#000",
 
-    shadowRadius: 8,
+      shadowOpacity: 0.08,
 
-    shadowOffset: {
-      width: 0,
-      height: 4,
+      shadowRadius: 8,
+
+      shadowOffset: {
+        width: 0,
+        height: 4,
+      },
+
+      elevation: 4,
     },
 
-    elevation: 3,
-  },
+    image: {
+      width: "100%",
 
-  image: {
-    width: "100%",
+      height: 120,
 
-    height: 140,
+      borderRadius: 12,
+    },
 
-    borderRadius: 12,
-  },
+    title: {
+      marginTop: 10,
 
-  title: {
-    marginTop: 10,
+      fontSize: 15,
 
-    fontSize: 16,
+      fontWeight: "600",
+    },
 
-    fontWeight: "600",
-  },
+    price: {
+      marginTop: 6,
 
-  price: {
-    marginTop: 6,
+      fontSize: 18,
 
-    fontSize: 18,
+      fontWeight: "700",
+    },
 
-    fontWeight: "700",
-  },
+    actions: {
+      flexDirection: "row",
 
-  actionRow: {
-    marginTop: 12,
+      justifyContent: "center",
 
-    flexDirection: "row",
+      alignItems: "center",
 
-    justifyContent: "center",
+      marginTop: 14,
+    },
 
-    alignItems: "center",
-  },
+    removeBtn: {
+      width: 36,
 
-  smallButton: {
-    width: 40,
+      height: 36,
 
-    height: 40,
+      borderRadius: 18,
 
-    borderRadius: 20,
+      backgroundColor: "#E5E5E5",
 
-    justifyContent: "center",
+      justifyContent: "center",
 
-    alignItems: "center",
-  },
+      alignItems: "center",
+    },
 
-  qty: {
-    marginHorizontal: 16,
+    addBtn: {
+      width: 36,
 
-    fontSize: 18,
+      height: 36,
 
-    fontWeight: "700",
-  },
+      borderRadius: 18,
 
-  buttonText: {
-    color: "#fff",
+      justifyContent: "center",
 
-    fontSize: 18,
+      alignItems: "center",
+    },
 
-    fontWeight: "700",
-  },
-});
+    actionText: {
+      fontSize: 22,
+
+      fontWeight: "700",
+    },
+
+    addText: {
+      color: "#fff",
+
+      fontSize: 22,
+
+      fontWeight: "700",
+    },
+
+    qty: {
+      marginHorizontal: 16,
+
+      fontSize: 18,
+
+      fontWeight: "700",
+    },
+  });
