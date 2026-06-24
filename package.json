@@ -6,7 +6,8 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "validate-payload": "tsx scripts/validatePayload.ts"
   },
   "dependencies": {
     "@shopify/flash-list": "^2.3.2",
@@ -23,6 +24,7 @@
   },
   "devDependencies": {
     "@types/react": "~19.1.0",
+    "tsx": "^4.22.4",
     "typescript": "~5.9.2"
   },
   "private": true
