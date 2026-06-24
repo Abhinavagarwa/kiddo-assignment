@@ -9,4 +9,4 @@ GitHub Actions automatically validates:
 - Component registry integrity
 
 Deployment intentionally excluded for assignment scope.
-![CI]((https://github.com/Abhinavagarwa/kiddo-assignment/actions/workflows/ci.yml/badge.svg))
+![CI](https://github.com/Abhinavagarwa/kiddo-assignment/actions/workflows/ci.yml/badge.svg)
