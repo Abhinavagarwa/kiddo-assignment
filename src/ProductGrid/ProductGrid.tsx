@@ -6,7 +6,7 @@ import {
   StyleSheet,
 } from "react-native";
 
-import ProductCard from "../ProductCard/ProductCard";
+import ProductCard from "../components/ProductCard/ProductCard";
 
 function ProductGrid({
   node,
