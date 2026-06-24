@@ -22,7 +22,8 @@ export const handleAction = (
       useCartStore
         .getState()
         .addItem(
-          action.payload.id
+          action.payload.id,
+          action.payload.price
         );
 
       break;

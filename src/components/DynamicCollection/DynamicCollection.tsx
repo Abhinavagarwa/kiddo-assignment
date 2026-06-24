@@ -1,5 +1,4 @@
 import React, { memo } from "react";
-
 import {
   View,
   Text,
@@ -10,33 +9,39 @@ import { FlashList } from "@shopify/flash-list";
 
 import ProductCard from "../ProductCard/ProductCard";
 
+interface Product {
+  id: string;
+  title: string;
+  image: string;
+  price: number;
+}
+
+interface Props {
+  node: {
+    title: string;
+    products: Product[];
+  };
+}
+
 function DynamicCollection({
   node,
-}: any) {
+}: Props) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>
         {node.title}
       </Text>
 
-      <FlashList
+      <FlashList<Product>
         horizontal
         data={node.products}
-        estimatedItemSize={220}
-        keyExtractor={(item) =>
-          item.id
-        }
+        keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <ProductCard
-            product={item}
-          />
+          <ProductCard product={item} />
         )}
         showsHorizontalScrollIndicator={false}
-        style={{
-          height: 320,
-        }}
         contentContainerStyle={{
-          paddingRight: 20,
+          paddingHorizontal: 8,
         }}
       />
     </View>
@@ -49,13 +54,13 @@ export default memo(
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 24,
+    marginTop: 20,
   },
 
   title: {
-    fontSize: 22,
+    fontSize: 20,
     fontWeight: "700",
-    marginBottom: 16,
-    marginLeft: 4,
+    marginBottom: 12,
+    marginLeft: 12,
   },
 });

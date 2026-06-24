@@ -1,5 +1,4 @@
 import React from "react";
-
 import { FlashList } from "@shopify/flash-list";
 
 import { RenderNode } from "./RenderNode";
@@ -12,18 +11,14 @@ export function HomeRenderer({
   sections,
 }: Props) {
   return (
-    <FlashList
+    <FlashList<any>
       data={sections}
-      estimatedItemSize={250}
-      keyExtractor={(item) =>
-        item.id
-      }
+      keyExtractor={(item) => item.id}
       renderItem={({ item }) => (
         <RenderNode node={item} />
       )}
       contentContainerStyle={{
-        paddingHorizontal: 16,
-        paddingBottom: 24,
+        paddingBottom: 100,
       }}
     />
   );
