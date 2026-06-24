@@ -12,8 +12,8 @@ Deployment intentionally excluded for assignment scope.
 ![CI](https://github.com/Abhinavagarwa/kiddo-assignment/actions/workflows/ci.yml/badge.svg)
 
 ## Screenshots
-!a(./screenshots/a.jpeg)
-!b(./screenshots/b.jpeg)
-!c(./screenshots/c.jpeg)
-!d(./screenshots/d.jpeg)
-!e(./screenshots/e.jpeg)
+![a](./screenshots/a.jpeg)
+![b](./screenshots/b.jpeg)
+![c](./screenshots/c.jpeg)
+![d](./screenshots/d.jpeg)
+![e](./screenshots/e.jpeg)
