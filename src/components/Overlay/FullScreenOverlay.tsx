@@ -1,35 +1,30 @@
 import React from "react";
+import { View, StyleSheet } from "react-native";
+import LottieView from "lottie-react-native";
 
-import LottieView
-from "lottie-react-native";
-
-import {
-  StyleSheet,
-} from "react-native";
-
-interface Props {
-  source: any;
-}
-
-export function FullScreenOverlay({
-  source,
-}: Props) {
-
+export function FullScreenOverlay() {
   return (
-    <LottieView
-      source={source}
-      autoPlay
-      loop
+    <View
       pointerEvents="none"
-      style={styles.overlay}
-    />
+      style={StyleSheet.absoluteFill}
+    >
+      <LottieView
+        source={require("../../assets/confetti.json")}
+        autoPlay
+        loop
+        style={styles.overlay}
+      />
+    </View>
   );
 }
 
-const styles =
-  StyleSheet.create({
-    overlay: {
-      ...StyleSheet.absoluteFillObject,
-      zIndex: 999,
-    },
-  });
+const styles = StyleSheet.create({
+  overlay: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    zIndex: 999,
+  },
+});
