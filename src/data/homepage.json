@@ -22,25 +22,25 @@
         {
           "id": "1",
           "title": "Toy Car",
-          "image": "https://picsum.photos/200",
+          "image": "toy.jpg",
           "price": 199
         },
         {
           "id": "2",
           "title": "Blocks",
-          "image": "https://picsum.photos/201",
+          "image": "block.webp",
           "price": 299
         },
         {
           "id": "3",
           "title": "Puzzle Set",
-          "image": "https://picsum.photos/204",
+          "image": "block.webp",
           "price": 399
         },
         {
           "id": "4",
           "title": "Story Book",
-          "image": "https://picsum.photos/205",
+          "image": "story.avif",
           "price": 249
         }
       ]
@@ -53,26 +53,20 @@
         {
           "id": "11",
           "title": "Bottle",
-          "image": "https://picsum.photos/202",
+          "image": "bottle.webp",
           "price": 149
         },
         {
           "id": "12",
           "title": "Lunch Box",
-          "image": "https://picsum.photos/203",
+          "image": "lunchbox.jpg",
           "price": 249
         },
         {
           "id": "13",
           "title": "School Bag",
-          "image": "https://picsum.photos/206",
+          "image": "images.jpeg",
           "price": 599
-        },
-        {
-          "id": "14",
-          "title": "Pencil Kit",
-          "image": "https://picsum.photos/207",
-          "price": 99
         }
       ]
     },

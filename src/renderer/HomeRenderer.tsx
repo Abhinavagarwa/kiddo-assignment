@@ -18,6 +18,7 @@ export function HomeRenderer({
         <RenderNode node={item} />
       )}
       contentContainerStyle={{
+        paddingHorizontal: 8,
         paddingBottom: 100,
       }}
     />

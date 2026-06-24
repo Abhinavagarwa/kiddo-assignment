@@ -7,6 +7,7 @@ import {
   StyleSheet,
 } from "react-native";
 
+import { imageMap } from "../../assets/imageMap";
 import { Image } from "expo-image";
 
 import { useTheme }
@@ -47,10 +48,14 @@ function ProductCard({
     <View style={styles.card}>
 
       <Image
-        source={product.image}
-        style={styles.image}
-        contentFit="cover"
-      />
+  source={
+    imageMap[
+      product.image as keyof typeof imageMap
+    ] || { uri: product.image }
+  }
+  style={styles.image}
+  contentFit="cover"
+/>
 
       <Text style={styles.title}>
         {product.title}
